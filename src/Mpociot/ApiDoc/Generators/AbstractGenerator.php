@@ -88,6 +88,11 @@ abstract class AbstractGenerator
                 'value' => '',
                 'description' => [],
             ];
+
+            if (is_string($rules)) {
+                $rules = explode('|', $rules);
+            }
+
             foreach ($rules as $ruleName => $rule) {
                 $this->parseRule($rule, $attribute, $attributeData, $routeData['id']);
             }
