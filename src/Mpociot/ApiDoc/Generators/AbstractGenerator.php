@@ -79,8 +79,8 @@ abstract class AbstractGenerator
      */
     protected function getParameters($routeData, $routeAction, $bindings)
     {
-        $validator = Validator::make([], $this->getRouteRules($routeAction['uses'], $bindings));
-        foreach ($validator->getRules() as $attribute => $rules) {
+        $routeRules = $this->getRouteRules($routeAction['uses'], $bindings);
+        foreach ($routeRules as $attribute => $rules) {
             $attributeData = [
                 'required' => false,
                 'type' => null,
